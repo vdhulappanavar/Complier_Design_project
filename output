@@ -1,0 +1,48 @@
+Intermediate code:
+mov @i, 4
+mov @d, 10
+mov @m, 10.0
+mov @j, #2
+call __scanf, x
+l3:
+cmp @i, #10
+b.ge  l4
+mov @j, #9
+l1:
+cmp @j, #0
+b.le  l2
+sub @j, @j, #1
+
+b l1
+l2:
+call __printf, d
+call __printf, m
+add @i, @i, #1
+
+b l3
+l4:
+call __exit
+
+Symbol table:
+name: KEYWORD, value: int, line_number: 2
+name: KEYWORD, value: main, line_number: 2
+name: IDENTIFIER, value: i, line_number: 9
+name: DIGIT, value: 4, line_number: 9
+name: IDENTIFIER, value: j, line_number: 9
+name: IDENTIFIER, value: d, line_number: 9
+name: DIGIT, value: 10, line_number: 9
+name: KEYWORD, value: double, line_number: 10
+name: IDENTIFIER, value: x, line_number: 10
+name: KEYWORD, value: float, line_number: 11
+name: IDENTIFIER, value: m, line_number: 11
+name: DIGIT, value: 10.0, line_number: 11
+name: DIGIT, value: 2, line_number: 12
+name: KEYWORD, value: scanf, line_number: 13
+name: STRING CONSTANT, value: "%e", line_number: 13
+name: KEYWORD, value: while, line_number: 14
+name: DIGIT, value: 9, line_number: 17
+name: DIGIT, value: 0, line_number: 18
+name: KEYWORD, value: printf, line_number: 20
+name: STRING CONSTANT, value: "%d", line_number: 20
+name: STRING CONSTANT, value: "%f", line_number: 21
+Successfully parsed the given program
